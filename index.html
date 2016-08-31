@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Grades</title>
+<!--Import Google Icon Font-->
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet" href="assets/css/materialize.min.css"  media="screen,projection,print"/>
+<!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="assets/js/materialize.min.js"></script>
+  <script src="script.js"></script>
+</head>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo center">Grade Predictor</a>
+    </div>
+  </nav>
+  
+
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col m12 s12">
+        	<!-- The form to get the number of grade components -->
+        	<div class="card-panel orange white-text">Step 1: Form Setup</div>
+		    	<div class="row">
+			        <div class="input-field col m8 s12">
+			          <input id="qtt" type="number">
+			          <label for="qtt">Enter the number of grade components you have grades for</label>
+			        </div>
+			    	<div class="input-field col m4 s12">
+			          <button class="btn waves-effect waves-light" type="submit" onclick="qttInputs()">Submit</button>
+			      	</div>
+		    	</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col m12 s12">
+        	<!-- The form to get the number of grade components -->
+        	<div class="card-panel orange white-text">Step 2: Grade Entry</div>
+        	<form class="col s12" action="#">
+		    	<div class="row" id="form">
+			        
+		    	</div>
+
+		    	<div class="row">
+		    		<div class="card-panel" style="box-shadow: none; border-left: 5px solid #ffcdd2;">
+      					<span class="grey-text text-darken-2">Select upside / downside options to predict best and worst case scenario</span>
+    				</div>
+		    		<div class="input-field col s6">
+					    <select id="negative" class="browser-default">
+					      <option value="" disabled selected>Choose your option</option>
+					      <option value="m10">-10%</option>
+					      <option value="m20">-20%</option>
+					      <option value="m30">-30%</option>
+					    </select>
+				  	</div>
+				  	<div class="input-field col s6">
+					    <select id="positive" class="browser-default">
+					      <option value="" disabled selected>Choose your option</option>
+					      <option value="p10">+10%</option>
+					      <option value="p20">+20%</option>
+					      <option value="p30">+30%</option>
+					    </select>
+				  	</div>
+		    		
+			    </div>
+		    </form>
+		    <div class="input-field col m12 s12">
+				<button class="btn waves-effect waves-light" name="action" onclick="predict()">PREDICT GRADE</button>
+				<button class="btn waves-effect waves-light red" onclick="resetForm()">RESET</button>
+			</div>
+        </div>
+      </div>
+
+<div class="row" id="print">
+    <div class="card-panel orange white-text">Step 3: Results</div>
+    	<div class="section" >
+			<div class="row">
+      			<div class="col s4 red-text center-align" id="fMinus"></div>
+      			<div class="col s4 center-align"id="fAvg"></div>
+      			<div class="col s4 green-text center-align"id="fPlus"></div>
+    		</div>
+    			
+		</div>
+	</div>
+<button class="btn waves-effect waves-light red" onclick="printDiv('print');">PRINT</button>
+</div>
+ 
+  </body>
+  </html>
